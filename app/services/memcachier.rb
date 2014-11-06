@@ -5,6 +5,6 @@ class Memcachier
 
   def self.down?
     document = Nokogiri::HTML(open(URL))
-    document.css('.lead').text == 'All systems go!'
+    document.css('.lead').text != 'All systems go!'
   end
 end

@@ -5,6 +5,6 @@ class Github
 
   def self.down?
     document = Nokogiri::HTML(open(URL))
-    document.css('#message').text == 'All systems operational'
+    document.css('#message').text.include?("All systems operational") == false
   end
 end

@@ -5,6 +5,6 @@ class Stripe
 
   def self.down?
     document = Nokogiri::HTML(open(URL))
-    document.css('.title').text == 'All services are online.'
+    document.css('.title').text != 'All services are online.'
   end
 end

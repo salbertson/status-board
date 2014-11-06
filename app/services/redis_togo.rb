@@ -5,6 +5,6 @@ class RedisTogo
 
   def self.down?
     document = Nokogiri::HTML(open(URL))
-    document.css('.status').text == 'All Systems Operational'
+    document.css('.page-status').text.include?("All Systems Operational") == false
   end
 end
