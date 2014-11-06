@@ -253,6 +253,7 @@ DEPENDENCIES
   launchy
   neat (~> 1.5.1)
   newrelic_rpm (>= 3.7.3)
+  nokogiri
   normalize-rails (~> 3.0.0)
   pg
   pry-rails
