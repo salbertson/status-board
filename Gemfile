@@ -22,6 +22,7 @@ gem "recipient_interceptor"
 gem "sass-rails", "~> 4.0.3"
 gem "simple_form"
 gem "title"
+gem "typhoeus"
 gem "uglifier"
 gem "unicorn"
 

@@ -79,12 +79,15 @@ GEM
     email_validator (1.4.0)
       activemodel
     erubis (2.7.0)
+    ethon (0.7.1)
+      ffi (>= 1.3.0)
     execjs (2.2.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    ffi (1.9.6)
     flutie (2.0.0)
     formulaic (0.1.2)
       activesupport
@@ -209,6 +212,8 @@ GEM
     title (0.0.5)
       i18n
       rails (>= 3.1)
+    typhoeus (0.6.9)
+      ethon (>= 0.7.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -262,6 +267,7 @@ DEPENDENCIES
   spring-commands-rspec
   timecop
   title
+  typhoeus
   uglifier
   unicorn
   webmock
