@@ -6,8 +6,7 @@ class StatusCheckJob
   def perform
     service = @service_name.classify.constantize
 
-    # unless service.up?
-    if service.up?
+    if service.down?
       NotificationMailer.delay.notification(@service_name)
     end
   end
