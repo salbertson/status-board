@@ -1,6 +1,6 @@
 class StatusCheckJob
   def initialize(service_name)
-    @service_name = service_name.to_s
+    @service_name = service_name
   end
 
   def perform
