@@ -1,0 +1,18 @@
+.dashboard {
+  $max-width: 600px;
+  @include outer-container;
+}
+
+.dashboard-item {
+  padding: 40px 80px;
+
+  h1 {
+    font-size: 1.4em;
+    font-weight: normal;
+    display: inline;
+  }
+
+  .label-switch {
+    float: right;
+  }
+}
