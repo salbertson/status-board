@@ -1,19 +1,6 @@
-%ul.dashboard
-  %li.dashboard-item
-    %h1
-      Heroku
-    %label.label-switch
-      %input{ type: "checkbox" }
-        .checkbox
-  %li.dashboard-item
-    %h1
-      Memcachier
-    %label.label-switch
-      %input{ type: "checkbox" }
-        .checkbox
-  %li.dashboard-item
-    %h1
-      RedisToGo
-    %label.label-switch
-      %input{ type: "checkbox" }
-        .checkbox
+- if current_user
+  = render 'dashboard'
+  .footer
+    = link_to 'Sign Out', sign_out_path, class: 'button'
+- else
+  = render 'landing'
