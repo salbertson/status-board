@@ -5,7 +5,7 @@ class NotificationMailer < ActionMailer::Base
     @service_url = service_name.classify.constantize::URL
 
     mail(
-      to: "hello@scottalbertson.com",
+      to: ENV.fetch('RECIPIENTS').split(','),
       subject: "#{service_name.titleize} went down!"
     )
   end
