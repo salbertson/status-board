@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "application#index"
 
+  resource :user, only: [:update]
   resources(
     :subscriptions,
     only: [:create, :destroy],

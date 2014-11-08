@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  before_action :require_current_user
+  before_action :authenticate
 
   def create
     subscription = current_user.subscriptions.new(subscription_params)
@@ -24,10 +24,6 @@ class SubscriptionsController < ApplicationController
   end
 
   private
-
-  def require_current_user
-    current_user != nil
-  end
 
   def subscription_params
     params.require('subscription').permit('name')

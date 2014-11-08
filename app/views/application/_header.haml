@@ -1,4 +1,14 @@
-.header
-  %span
-    = current_user.email_address
+.header{ 'ng-controller' => 'HeaderController',
+  'ng-init' => "initialize({user: #{current_user.to_json}})" }
+
+  .email-address{ 'ng-bind' => 'user.emailAddress',
+    'ng-hide' => 'editingEmailAddress',
+    'ng-click' => 'editEmailAddress()' }
+
+  .email-address-form{ 'ng-show' => 'editingEmailAddress',
+    'ng-cloak' => ''}
+    %input{ 'ng-model' => 'user.emailAddress' }
+    %button{ 'ng-click' => 'updateUser()' }
+      Update
+
   = link_to 'Sign Out', sign_out_path, class: 'button'

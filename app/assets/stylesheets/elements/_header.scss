@@ -1,8 +1,38 @@
+$header-height: 50px;
+
 .header {
-  text-align: center;
-  margin: 20px 0;
+  $max-width: 600px;
+  @include outer-container;
+
+  height: $header-height;
+  margin-top: 6px;
+  margin-bottom: 30px;
+
+  .email-address, .email-address-form {
+    line-height: $header-height;
+    float: left;
+  }
+
+  .email-address {
+    cursor: pointer;
+  }
+
+  .email-address-form input {
+    display: inline;
+    padding: 6px;
+    margin: 0 6px 0 0;
+  }
+
+  .email-address-form button {
+    font-size: 0.8em;
+    position: relative;
+    top: -2px;
+  }
 
   .button {
-    margin: auto;
+    float: right;
+    font-size: 0.8em;
+    position: relative;
+    top: 9px;
   }
 }
