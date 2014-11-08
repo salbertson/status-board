@@ -31,6 +31,8 @@ GEM
     airbrake (4.1.0)
       builder
       multi_json
+    angularjs-rails (1.2.22)
+    angularjs-rails-resource (1.2.1)
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
     bourbon (3.2.3)
@@ -111,9 +113,6 @@ GEM
       slop (>= 3.5.0)
       term-ansicolor
       terminal-table
-    jquery-rails (3.1.2)
-      railties (>= 3.0, < 5.0)
-      thor (>= 0.14, < 2.0)
     json (1.8.1)
     jwt (1.0.0)
     kgio (2.9.2)
@@ -259,6 +258,8 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake
+  angularjs-rails
+  angularjs-rails-resource
   awesome_print
   bourbon (~> 3.2.1)
   byebug
@@ -274,7 +275,6 @@ DEPENDENCIES
   haml
   high_voltage
   i18n-tasks
-  jquery-rails
   launchy
   letter_opener
   neat (~> 1.5.1)

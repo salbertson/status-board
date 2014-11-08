@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def index
+    @services = Services.all
+
+    # get rid with #signed_in? maybe or Guest object?
+    if current_user
+      @subscriptions = current_user.subscriptions
+    end
   end
 
   private

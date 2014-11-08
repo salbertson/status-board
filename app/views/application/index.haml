@@ -1,6 +1,7 @@
 - if current_user
-  = render 'dashboard'
-  .footer
+  .header
     = link_to 'Sign Out', sign_out_path, class: 'button'
+
+  = render 'dashboard'
 - else
   = render 'landing'

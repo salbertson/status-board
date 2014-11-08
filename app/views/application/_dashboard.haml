@@ -1,19 +1,9 @@
-%ul.dashboard
-  %li.dashboard-item
-    %h1
-      Heroku
+%ul.dashboard{ 'ng-controller' => 'DashboardController',
+  'ng-init' => "initialize({services: #{@services.to_json}, subscriptions: #{@subscriptions.to_json}})" }
+  %li.dashboard-item{ 'ng-repeat' => 'service in services' }
+    %h1{ 'ng-bind' => 'service.name' }
     %label.label-switch
-      %input{ type: "checkbox" }
-        .checkbox
-  %li.dashboard-item
-    %h1
-      Memcachier
-    %label.label-switch
-      %input{ type: "checkbox" }
-        .checkbox
-  %li.dashboard-item
-    %h1
-      RedisToGo
-    %label.label-switch
-      %input{ type: "checkbox" }
+      %input{ type: "checkbox",
+        'ng-checked' => 'isSubscribed(service)',
+        'ng-click' => 'updateSubscription(service)' }
         .checkbox
