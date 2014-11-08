@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
   def index
     @services = Services.all
 
-    # get rid with #signed_in? maybe or Guest object?
     if current_user
       @subscriptions = current_user.subscriptions
     end
@@ -17,6 +16,6 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= User.find_by(email_address: session[:email_address])
+    @current_user ||= User.find_by(id: session[:user_id])
   end
 end
