@@ -7,7 +7,7 @@ class StatusCheckJob
     service = @service_name.classify.constantize
 
     if service.down?
-      NotificationMailer.delay.notification(@service_name)
+      Delayed::Job.enqueue NotifySubscribersJob.new(@service_name)
     end
   end
 end
