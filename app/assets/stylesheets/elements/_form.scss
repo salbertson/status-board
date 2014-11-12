@@ -1,0 +1,24 @@
+.form {
+  fieldset {
+    background: $base-background-color;
+    border: 0;
+    padding: 0;
+    margin-bottom: 2em;
+  }
+
+  label {
+    font-size: 1.1em;
+    margin-bottom: 12px !important;
+  }
+
+  input {
+    font-size: 1.1em;
+    padding: 4px;
+    width: 100%;
+  }
+
+  button {
+    float: right;
+    font-size: 0.9em;
+  }
+}

@@ -1,5 +1,8 @@
 - if current_user
-  = render 'header'
-  = render 'dashboard'
+  %div{ 'ng-controller' => 'ApplicationController',
+    'ng-init' => "initialize({user: #{current_user.to_json}})" }
+    = render 'header'
+    = render 'dashboard'
+    = render 'profile'
 - else
   = render 'landing'
