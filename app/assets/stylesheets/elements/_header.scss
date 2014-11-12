@@ -26,17 +26,21 @@ header.navigation {
     z-index: 9999;
   }
 
-  // .logo {
-  //   float: left;
-  //   max-height: $navigation-height;
-  //   padding-left: $navigation-padding;
-  //   padding-right: 2em;
+  .logo {
+    float: left;
+    max-height: $navigation-height;
+    padding-left: $navigation-padding;
+    padding-right: 2em;
+    color: $navigation-color;
+    font-size: 1.4em;
+    font-weight: normal;
+    line-height: $navigation-height;
 
-  //   img {
-  //     max-height: $navigation-height;
-  //     padding: .8em 0;
-  //   }
-  // }
+    // img {
+    //   max-height: $navigation-height;
+    //   padding: .8em 0;
+    // }
+  }
 
   // Mobile view
 
