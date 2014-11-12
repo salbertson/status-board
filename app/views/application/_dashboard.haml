@@ -1,9 +1,12 @@
-%ul.dashboard{ 'ng-controller' => 'DashboardController',
+%ul.grid-items-lines{ 'ng-controller' => 'DashboardController',
   'ng-init' => "initialize({services: #{@services.to_json}, subscriptions: #{@subscriptions.to_json}})" }
-  %li.dashboard-item{ 'ng-repeat' => 'service in services' }
+  %li.grid-item{ 'ng-repeat' => 'service in services',
+    'ng-click' => 'updateSubscription(service)' }
     %h1{ 'ng-bind' => 'service.name' }
     %label.label-switch
       %input{ type: "checkbox",
         'ng-checked' => 'findSubscription(service)',
         'ng-click' => 'updateSubscription(service)' }
         .checkbox
+  %li.right-cover
+  %li.bottom-cover

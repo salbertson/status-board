@@ -1,18 +1,72 @@
-.dashboard {
-  $max-width: 500px;
-  @include outer-container;
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
 }
 
-.dashboard-item {
-  padding: 40px 80px;
+.grid-items-lines {
+  $grid-items-background: $base-background-color;
+  $grid-item-background: $base-background-color;
+  $grid-item-border: 1px solid transparentize($base-font-color, .8);
+  $grid-item-columns: 4;
+  $grid-item-big-columns: 8;
+  $grid-item-color: $base-font-color;
+  $grid-item-height: 32px;
 
-  h1 {
-    font-size: 1.4em;
-    font-weight: normal;
-    display: inline;
+  @include clearfix;
+  position: relative;
+
+  .grid-item {
+    @include transition (all 0.2s ease-in-out);
+    background: $grid-item-background;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    padding: 3em;
+    border-right: $grid-item-border;
+    border-bottom: $grid-item-border;
+    cursor: pointer;
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+    }
+
+    &:hover {
+      background: transparentize($grid-item-color, .96);
+    }
   }
 
-  .label-switch {
+  .grid-item label {
     float: right;
+    margin: 0;
+  }
+
+  .grid-item h1 {
+    color: $grid-item-color;
+    font-size: 1.3em;
+    display: inline;
+    line-height: $grid-item-height;
+  }
+
+  .grid-item p {
+    color: transparentize($grid-item-color, .4);
+    @include media($medium-screen) {
+      max-width: 70%;
+    }
+  }
+
+  // this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
+  .bottom-cover {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 3px;
+    background: $grid-items-background;
+  }
+
+  .right-cover {
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    width: 4px;
+    background: $grid-items-background;
   }
 }
