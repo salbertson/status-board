@@ -1,13 +1,13 @@
 class StatusCheckJob
-  def initialize(service_name)
-    @service_name = service_name
+  def initialize(service_id)
+    @service_id = service_id
   end
 
   def perform
-    service = @service_name.classify.constantize
+    service = Services.find(@service_id)
 
     if service.down?
-      Delayed::Job.enqueue NotifySubscribersJob.new(@service_name)
+      Delayed::Job.enqueue NotifySubscribersJob.new(@service_id)
     end
   end
 end

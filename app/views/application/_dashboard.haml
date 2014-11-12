@@ -4,6 +4,6 @@
     %h1{ 'ng-bind' => 'service.name' }
     %label.label-switch
       %input{ type: "checkbox",
-        'ng-checked' => 'isSubscribed(service)',
+        'ng-checked' => 'findSubscription(service)',
         'ng-click' => 'updateSubscription(service)' }
         .checkbox

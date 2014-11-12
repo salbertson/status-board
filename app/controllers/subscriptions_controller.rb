@@ -5,16 +5,14 @@ class SubscriptionsController < ApplicationController
     subscription = current_user.subscriptions.new(subscription_params)
 
     if subscription.save
-      head 201
+      render json: subscription
     else
       head 422
     end
   end
 
   def destroy
-    subscription = current_user.subscriptions.find_by(
-      name: params[:name]
-    )
+    subscription = current_user.subscriptions.find(params[:id])
 
     if subscription.destroy
       head 200
@@ -26,6 +24,6 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require('subscription').permit('name')
+    params.require('subscription').permit('service_id')
   end
 end

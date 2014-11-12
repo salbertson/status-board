@@ -1,8 +1,14 @@
-class Heroku
-  URL = "https://status.heroku.com/api/v3/current-status"
+class Heroku < Service
+  def name
+    "Heroku"
+  end
 
-  def self.down?
-    response = Typhoeus.get(URL)
+  def url
+    "https://status.heroku.com/api/v3/current-status"
+  end
+
+  def down?
+    response = Typhoeus.get(url)
     JSON.parse(response.body)["status"]["Production"] != "green"
   end
 end

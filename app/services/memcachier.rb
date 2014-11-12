@@ -1,10 +1,16 @@
 require 'open-uri'
 
-class Memcachier
-  URL = 'http://status.memcachier.com'
+class Memcachier < Service
+  def name
+    'Memcachier'
+  end
 
-  def self.down?
-    document = Nokogiri::HTML(open(URL))
+  def url
+    'http://status.memcachier.com'
+  end
+
+  def down?
+    document = Nokogiri::HTML(open(url))
     document.css('.lead').text != 'All systems go!'
   end
 end

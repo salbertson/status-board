@@ -2,30 +2,31 @@ App.controller('DashboardController', ['$scope', 'Subscription', function($scope
   var subscriptions = [];
 
   $scope.initialize = function(options) {
-    // store subscriptions as Subscription objects?
     $scope.services = options.services;
-    subscriptions = options.subscriptions;
+    subscriptions = options.subscriptions.map(function(subscription) {
+      return new Subscription(subscription);
+    });
   };
 
   $scope.updateSubscription = function(service) {
-    if ($scope.isSubscribed(service)) {
-      var subscription = new Subscription({ id: service.name, name: service.name })
+    var subscription = $scope.findSubscription(service);
+
+    if (subscription) {
       deleteSubscription(subscription);
     } else {
-      var subscription = new Subscription({ name: service.name });
-      createSubscription(subscription);
+      createSubscription(new Subscription({ service_id: service.id }));
     }
   };
 
-  $scope.isSubscribed = function(service) {
-    return subscriptions.some(function(subscription) {
-      return subscription.name == service.name;
-    });
+  $scope.findSubscription = function(service) {
+    return subscriptions.filter(function(subscription) {
+      return subscription.serviceId == service.id;
+    })[0];
   };
 
   function deleteSubscription(subscriptionToRemove) {
     subscriptions.forEach(function(subscription, index) {
-      if (subscription.name == subscriptionToRemove.name) {
+      if (subscriptionToRemove == subscription) {
         subscriptions.splice(index, 1);
       }
     });

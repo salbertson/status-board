@@ -6,9 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def index
-    @services = Services.all
-
     if current_user
+      @services = Services.all
       @subscriptions = current_user.subscriptions
     end
   end

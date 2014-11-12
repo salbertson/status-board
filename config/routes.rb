@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   resources(
     :subscriptions,
     only: [:create, :destroy],
-    defaults: { format: :json },
-    param: :name
+    defaults: { format: :json }
   )
 
   get "/auth/github/callback", to: "sessions#create"
