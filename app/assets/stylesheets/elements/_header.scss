@@ -250,13 +250,14 @@ header.navigation {
 
   .navigation-tools {
     @include clearfix;
-    display: block;
+    display: none;
     // padding-right: $navigation-padding;
     // padding-left: $navigation-padding/2;
     clear: both;
     background: #505050;
 
     @include media($large-screen) {
+      display: block;
       background: transparent;
       float: right;
       clear: none;
