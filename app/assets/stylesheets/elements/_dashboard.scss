@@ -17,6 +17,7 @@
   .grid-item {
     @include transition (all 0.2s ease-in-out);
     background: $grid-item-background;
+    height: 180px;
     width: 100%;
     overflow: hidden;
     float: left;
@@ -24,23 +25,34 @@
     border-right: $grid-item-border;
     border-bottom: $grid-item-border;
     cursor: pointer;
+    text-align: center;
 
     @include media($large-screen) {
       @include grid-item-columns($grid-item-columns);
     }
 
     &:hover {
-      background: transparentize($grid-item-color, .96);
+      background: lighten($base-background-color, 5);
+    }
+
+    img {
+      @include filter(grayscale(100%));
+      @include transform(translateZ(0));
+    }
+
+    &.subscription-active {
+      img {
+        @include filter(grayscale(0%));
+      }
     }
   }
 
   .grid-item label {
-    float: right;
+    display: inline-block;
     margin: 0;
   }
 
   .grid-item h1 {
-    @include ellipsis(70%);
     color: $grid-item-color;
     font-size: 1.2em;
     font-weight: normal;
@@ -49,9 +61,6 @@
 
   .grid-item p {
     color: transparentize($grid-item-color, .4);
-    @include media($medium-screen) {
-      max-width: 70%;
-    }
   }
 
   // this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
@@ -70,4 +79,9 @@
     width: 1px;
     background: $grid-items-background;
   }
+}
+
+.service-logo {
+  max-height: 50px;
+  max-width: 200px;
 }
