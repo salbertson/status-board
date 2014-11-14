@@ -1,0 +1,17 @@
+.modal
+  .modal-window{ 'ng-class' => '{open: showSettings}' }
+    .modal-inner
+      %label.modal-close{ 'ng-click' => 'closeSettings()' }
+      %h1
+        Settings
+      .form
+        %fieldset
+          %label
+            Email Address
+          %input{ 'ng-model' => 'user.emailAddress' }
+        %fieldset
+          %label
+            Slackbot URL
+          %input{ 'ng-model' => 'slack.settings.url' }
+        %button{ 'ng-click' => 'updateSettings()' }
+          Update

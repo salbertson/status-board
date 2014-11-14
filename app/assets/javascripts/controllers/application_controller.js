@@ -1,20 +1,31 @@
-App.controller('ApplicationController', ['$scope', 'User', function($scope, User) {
-  $scope.showProfile = false;
+App.controller('ApplicationController', ['$scope', 'User', 'Integration', function($scope, User, Integration) {
+  $scope.showSettings = false;
 
   $scope.initialize = function(options) {
     $scope.user = new User(options.user);
+    $scope.slack = new Integration(options.slack);
   };
 
-  $scope.openProfile = function() {
-    $scope.showProfile = true;
+  $scope.openSettings = function() {
+    $scope.showSettings = true;
   };
 
-  $scope.closeProfile = function() {
-    $scope.showProfile = false;
+  $scope.closeSettings = function() {
+    $scope.showSettings = false;
   };
 
-  $scope.updateUser = function() {
+  $scope.updateSettings = function() {
     $scope.user.$patch('/user');
-    $scope.showProfile = false;
+
+    if ($scope.slack.settings && $scope.slack.settings.url) {
+      $scope.slack.save();
+    }
+
+    if ($scope.slack.settings && !$scope.slack.settings.url) {
+      $scope.slack.delete();
+      $scope.slack.id = null;
+    }
+
+    $scope.showSettings = false;
   };
 }]);

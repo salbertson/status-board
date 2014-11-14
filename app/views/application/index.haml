@@ -1,8 +1,8 @@
 - if current_user
   %div{ 'ng-controller' => 'ApplicationController',
-    'ng-init' => "initialize({user: #{current_user.to_json}})" }
+    'ng-init' => "initialize({user: #{current_user.to_json}, slack: #{@slack_integration.to_json}})" }
     = render 'header'
     = render 'dashboard'
-    = render 'profile'
+    = render 'settings'
 - else
   = render 'landing'

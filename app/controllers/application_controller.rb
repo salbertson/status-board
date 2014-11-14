@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
     if current_user
       @services = Services.all
       @subscriptions = current_user.subscriptions
+      @slack_integration = current_user.integrations.find_slack ||
+        current_user.integrations.new_slack
     end
   end
 

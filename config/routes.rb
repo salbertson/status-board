@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     only: [:create, :destroy],
     defaults: { format: :json }
   )
+  resources(
+    :integrations,
+    only: [:create, :update, :destroy],
+    defaults: { format: :json }
+  )
 
   get "/auth/github/callback", to: "sessions#create"
   get "/sign_out", to: "sessions#destroy"
