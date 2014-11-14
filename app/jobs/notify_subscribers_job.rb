@@ -8,8 +8,8 @@ class NotifySubscribersJob
     
     subscriptions.find_each do |subscription|
       NotificationMailer.delay.notification(
-        @service_id,
-        subscription.user.email_address
+        subscription.service_id,
+        subscription.email_address
       )
     end
   end
