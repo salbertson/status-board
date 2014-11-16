@@ -1,9 +1,10 @@
 //= require angular
 //= require angularjs/rails/resource
+//= require angular-filter.min
 //= require_self
 //= require_tree .
 
-App = angular.module('StatusBoard', ['rails']);
+App = angular.module('StatusBoard', ['rails', 'angular.filter']);
 
 App.config(['$httpProvider', function($httpProvider) {
   var csrfToken = document.getElementsByName('csrf-token')[0];
