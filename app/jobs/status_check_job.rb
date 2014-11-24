@@ -16,6 +16,6 @@ class StatusCheckJob
   private
 
   def recent_outages
-    Outage.where(service_id: @service_id).where('created_at > ?', 1.hour.ago)
+    Outage.where(service_id: @service_id).where('created_at > ?', 6.hours.ago)
   end
 end
