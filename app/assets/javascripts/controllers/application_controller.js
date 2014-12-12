@@ -2,7 +2,6 @@ App.controller('ApplicationController', ['$scope', 'User', 'Integration', functi
   $scope.showSettings = false;
 
   $scope.initialize = function(options) {
-    $scope.user = new User(options.user);
     $scope.slack = new Integration(options.slack);
   };
 
@@ -15,8 +14,6 @@ App.controller('ApplicationController', ['$scope', 'User', 'Integration', functi
   };
 
   $scope.updateSettings = function() {
-    $scope.user.$patch('/user');
-
     if ($scope.slack.settings && $scope.slack.settings.url) {
       $scope.slack.save();
     }

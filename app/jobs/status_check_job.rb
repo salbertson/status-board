@@ -8,7 +8,6 @@ class StatusCheckJob
 
     if recent_outages.empty? && service.down?
       Outage.create!(service_id: service.id)
-      Delayed::Job.enqueue NotifySubscribersJob.new(service.id)
       Delayed::Job.enqueue NotifyIntegrationsJob.new(service.id)
     end
   end

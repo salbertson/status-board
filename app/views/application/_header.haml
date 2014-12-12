@@ -4,11 +4,6 @@
       = t('titles.application')
     .navigation-tools
       %ul.navigation-menu
-        %li.nav-link.more
-          %a{ 'ng-bind' => 'user.emailAddress' }
-          %ul.submenu
-            %li
-              %a{ 'ng-click' => 'openSettings()' }
-                Settings
-            %li
-              = link_to 'Sign Out', sign_out_path
+        %li.nav-link
+          %a{ 'ng-click' => 'openSettings()' }
+            Settings

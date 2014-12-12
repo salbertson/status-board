@@ -7,11 +7,9 @@
       .form
         %fieldset
           %label
-            Email Address
-          %input{ 'ng-model' => 'user.emailAddress' }
-        %fieldset
-          %label
-            Slackbot URL
+            Slackbot URL -
+            %a{ 'href' => 'http://slack.com/services/new/slackbot', 'target' => '_blank' }
+              get one here
           %input{ 'ng-model' => 'slack.settings.url' }
         %button{ 'ng-click' => 'updateSettings()' }
           Update
