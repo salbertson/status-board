@@ -12,7 +12,8 @@ class Service
   end
 
   def down?
-    raise("You should define #down? in service class")
+    document = Nokogiri::HTML(open(url))
+    document.css('.page-status').text.include?('All Systems Operational') == false
   end
 
   def to_hash
