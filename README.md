@@ -16,7 +16,15 @@ your machine with [this script].
 
 [this script]: https://github.com/thoughtbot/laptop
 
-After setting up, you can run the application using [foreman]:
+After setting up your local environment, you need to [go
+here](https://github.com/settings/applications) to register a new Github
+application for authentication. You can use the following example settings:
+
+    Application name: Status Board - Development
+    Homepage URL: http://localhost:5000
+    Authorization callback URL: http://localhost:5000
+
+Now, you can run the application using [foreman]:
 
     % foreman start
 
