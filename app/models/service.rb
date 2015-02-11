@@ -12,11 +12,23 @@ class Service
   end
 
   def down?
-    document = Nokogiri::HTML(open(url))
-    document.css('.page-status').text.include?('All Systems Operational') == false
+    !fetch_document.css('.page-status').text.include?('All Systems Operational')
   end
 
   def to_hash
     { id: id, name: name, url: url }
+  end
+
+  private
+
+  def fetch_document
+    Nokogiri::HTML(open(url))
+  rescue RuntimeError => error
+    if error.message.include? 'redirection forbidden'
+      url = error[/-> (.*$)/, 1]
+      Nokogiri::HTML(open(url))
+    else
+      raise
+    end
   end
 end
