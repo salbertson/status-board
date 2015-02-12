@@ -25,7 +25,7 @@ class Service
     Nokogiri::HTML(open(url))
   rescue RuntimeError => error
     if error.message.include? 'redirection forbidden'
-      url = error[/-> (.*$)/, 1]
+      url = error.message[/-> (.*$)/, 1]
       Nokogiri::HTML(open(url))
     else
       raise
