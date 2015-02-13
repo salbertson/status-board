@@ -1,7 +1,7 @@
 Status-board
 ============
 
-http://status-board-production.herokuapp.com
+http://statusboardhq.com
 
 Getting Started
 ---------------
