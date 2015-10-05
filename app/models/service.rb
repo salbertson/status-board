@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Service
   def id
     self.class.to_s.underscore
