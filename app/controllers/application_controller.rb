@@ -25,6 +25,6 @@ class ApplicationController < ActionController::Base
   end
 
   def ssl_configured?
-    !Rails.env.development?
+    ENV["FORCE_SSL"]
   end
 end
