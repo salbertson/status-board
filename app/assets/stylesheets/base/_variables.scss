@@ -1,7 +1,7 @@
 // Typography
 $sans-serif: $helvetica;
 $serif: $georgia;
-$base-font-family: $sans-serif;
+$base-font-family: 'Roboto', $sans-serif;
 $header-font-family: $base-font-family;
 
 // Font Sizes
@@ -23,6 +23,7 @@ $base-spacing: $base-line-height * 1em;
 $base-z-index: 0;
 
 // Colors
+$tan: #FAF8F1;
 $blue: #477DCA;
 $dark-gray: #333;
 $medium-gray: #999;
@@ -32,7 +33,7 @@ $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 
 // Background Color
-$base-background-color: white;
+$base-background-color: $tan;
 
 // Font Colors
 $base-font-color: $dark-gray;

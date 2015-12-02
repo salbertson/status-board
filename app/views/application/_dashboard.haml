@@ -1,7 +1,9 @@
 %ul.grid-items-lines{ 'ng-controller' => 'DashboardController',
   'ng-init' => "initialize({services: #{@services.to_json}, subscriptions: #{@subscriptions.to_json}})" }
   %li.grid-item{ 'ng-repeat' => 'service in services',
-    'ng-click' => 'updateSubscription(service)' }
+    'ng-click' => 'updateSubscription(service)',
+    'ng-class' => '{"subscription-active": findSubscription(service)}'}
+    %img.service-logo{src: "/service-logos/{{service.name | slugify}}.png"}
     %h1{ 'ng-bind' => 'service.name' }
     %label.label-switch
       %input{ type: "checkbox",
